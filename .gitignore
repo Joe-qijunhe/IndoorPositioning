@@ -8,3 +8,5 @@
 **/__pycache__
 **/model
 **/pre
+**/google-services.json
+**/local.properties
