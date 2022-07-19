@@ -132,7 +132,7 @@ public class Algorithm {
         int rows = accessPointData.get(accessPointData.keySet().iterator().next()).yArrayLength;
 
         //Calculate
-        Double[][] probabilities = new Double[56][56];
+        Double[][] probabilities = new Double[rows][cols];
         for (String accessPointName : accessPointNames) {
             RoomMatrix<SkewGeneralizedNormalDistribution> current2GHZAccessPointDistributions = accessPointData.get(accessPointName + "_2GHZ");
             RoomMatrix<SkewGeneralizedNormalDistribution> current5GHZAccessPointDistributions = accessPointData.get(accessPointName + "_5GHZ");

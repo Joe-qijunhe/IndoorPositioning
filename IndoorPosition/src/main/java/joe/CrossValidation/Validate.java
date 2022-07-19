@@ -6,7 +6,6 @@ import joe.Utils.JSONUtils;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import java.lang.reflect.Array;
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
@@ -83,9 +82,6 @@ public class Validate {
     }
 
     public static void main(String[] args) {
-//        crossValidation();
-
-        Integer[][] a = (Integer[][]) Array.newInstance(Integer.class, 3, 5);
-        System.out.println(a[0].length);
+        crossValidation();
     }
 }

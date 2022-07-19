@@ -43,11 +43,12 @@ public class Preprocess {
         Collections.shuffle(jsonList, new Random(7));
         // split the list to 10 lists with equal size
         List<List<Object>> foldList = new ArrayList<>();
-        int i = 0;
-        while (i < length) {
-            int end = Math.min(i + foldLength, length);
-            foldList.add(jsonList.subList(i, end));
-            i += foldLength;
+        for (int i = 0; foldList.size() < 10 ; i += foldLength) {
+            if (foldList.size() == 9) {
+                foldList.add(jsonList.subList(i, length));
+                break;
+            }
+            foldList.add(jsonList.subList(i, i + foldLength));
         }
         return foldList;
     }
