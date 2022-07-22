@@ -40,7 +40,7 @@ public class Preprocess {
         int foldLength = length / CrossValidationConstant.FOLD;
         List<Object> jsonList = jsonArray.toList();
         // shuffle the list randomly
-        Collections.shuffle(jsonList, new Random(7));
+        Collections.shuffle(jsonList, new Random(6));
         // split the list to 10 lists with equal size
         List<List<Object>> foldList = new ArrayList<>();
         for (int i = 0; foldList.size() < 10 ; i += foldLength) {

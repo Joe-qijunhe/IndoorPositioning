@@ -23,32 +23,32 @@ public class Helpers {
         return list;
     }
 
-//    public static int getDirection(Double angleFromNorth) {
-//        if (angleFromNorth > 315 || angleFromNorth <= 45) {
-//            return DIRECTION_NORTH;
-//        } else if (angleFromNorth > 45 && angleFromNorth <= 135) {
-//            return DIRECTION_EAST;
-//        } else if (angleFromNorth > 135 && angleFromNorth < 225) {
-//            return DIRECTION_SOUTH;
-//        } else if (angleFromNorth <= 315 && angleFromNorth > 225) {
-//            return DIRECTION_WEST;
-//        }
-//        return DIRECTION_NORTH;
-//    }
-
-
     public static int getDirection(Double angleFromNorth) {
-        if (angleFromNorth > -45 && angleFromNorth <= 45) {
+        if (angleFromNorth > 315 || angleFromNorth <= 45) {
             return DIRECTION_NORTH;
         } else if (angleFromNorth > 45 && angleFromNorth <= 135) {
             return DIRECTION_EAST;
-        } else if (angleFromNorth > 135 && angleFromNorth <= 180 || angleFromNorth <= -135 && angleFromNorth >= -180) {
+        } else if (angleFromNorth > 135 && angleFromNorth < 225) {
             return DIRECTION_SOUTH;
-        } else if (angleFromNorth <= -45 && angleFromNorth > -135) {
+        } else if (angleFromNorth <= 315 && angleFromNorth > 225) {
             return DIRECTION_WEST;
         }
         return DIRECTION_NORTH;
     }
+
+
+//    public static int getDirection(Double angleFromNorth) {
+//        if (angleFromNorth > -45 && angleFromNorth <= 45) {
+//            return DIRECTION_NORTH;
+//        } else if (angleFromNorth > 45 && angleFromNorth <= 135) {
+//            return DIRECTION_EAST;
+//        } else if (angleFromNorth > 135 && angleFromNorth <= 180 || angleFromNorth <= -135 && angleFromNorth >= -180) {
+//            return DIRECTION_SOUTH;
+//        } else if (angleFromNorth <= -45 && angleFromNorth > -135) {
+//            return DIRECTION_WEST;
+//        }
+//        return DIRECTION_NORTH;
+//    }
 
     public static int[] getClosestDirections(float angleFromNorth) {
         if (angleFromNorth >= 0 && angleFromNorth < 90) {

@@ -92,27 +92,39 @@ public class Algorithm {
 
         RoomMatrix<Double> probabilities = calculateProbabilityMap(rssiValues, directionData);
 
-        probabilitySums = probabilities.operate((int row, int col) -> {
-            Double probability = probabilities.getValueAtIndex(row, col);
-            if (probability != null) {
-                if (numSamples == 0) {
-                    return probability;
-                } else {
-                    return (probabilitySums.getValueAtIndex(row, col) + probability);
-                }
-            }
-            return probabilitySums.getValueAtIndex(row, col);
-        });
-        numSamples++;
+        probabilitySums = probabilities;
+
+//        probabilitySums = probabilities.operate((int row, int col) -> {
+//            Double probability = probabilities.getValueAtIndex(row, col);
+//            if (probability != null) {
+//                if (numSamples == 0) {
+//                    return probability;
+//                } else {
+//                    return (probabilitySums.getValueAtIndex(row, col) + probability);
+//                }
+//            }
+//            return probabilitySums.getValueAtIndex(row, col);
+//        });
+//        numSamples++;
+
+//        probabilitySums = probabilities.operate((int row, int col) -> {
+//            double probability = probabilities.getValueAtIndex(row, col);
+//            if (numSamples == 0) {
+//                return probability;
+//            } else {
+//                return (probabilitySums.getValueAtIndex(row, col) + probability);
+//            }
+//        });
+//        numSamples++;
 
         Double maxProbability = probabilitySums.getMaxValue(Comparator.comparingDouble(a -> a));
         Double thresholdProbability = maxProbability * (1 - IndoorPositioningSettings.THRESHOLD_PROBABILITY_PERCENTAGE);
-        for (int row = 0; row < probabilitySums.yArrayLength; row++) {
-            StringBuilder string = new StringBuilder();
-            for (int col = 0; col < probabilitySums.xArrayLength; col++) {
-                string.append(probabilitySums.getValueAtIndex(row, col) > thresholdProbability ? "#," : " ,");
-            }
-        }
+//        for (int row = 0; row < probabilitySums.yArrayLength; row++) {
+//            StringBuilder string = new StringBuilder();
+//            for (int col = 0; col < probabilitySums.xArrayLength; col++) {
+//                string.append(probabilitySums.getValueAtIndex(row, col) > thresholdProbability ? "#," : " ,");
+//            }
+//        }
 
         return calcCentroid(probabilitySums, thresholdProbability);
     }
@@ -132,7 +144,9 @@ public class Algorithm {
         int rows = accessPointData.get(accessPointData.keySet().iterator().next()).yArrayLength;
 
         //Calculate
-        Double[][] probabilities = new Double[rows][cols];
+//        Double[][] probabilities = new Double[rows][cols];
+        Double[][] probabilities = new Double[56][56];
+
         for (String accessPointName : accessPointNames) {
             RoomMatrix<SkewGeneralizedNormalDistribution> current2GHZAccessPointDistributions = accessPointData.get(accessPointName + "_2GHZ");
             RoomMatrix<SkewGeneralizedNormalDistribution> current5GHZAccessPointDistributions = accessPointData.get(accessPointName + "_5GHZ");
@@ -173,6 +187,7 @@ public class Algorithm {
         int numAboveThreshold = 0;
         for (int row = 0; row < map.yArrayLength; row++) {
             for (int col = 0; col < map.xArrayLength; col++) {
+                if (map.getValueAtIndex(row, col) == null) continue;
                 if (map.getValueAtIndex(row, col) > threshold) {
                     x += col * IndoorPositioningSettings.REFERENCE_POINT_DISTANCE;
                     y += row * IndoorPositioningSettings.REFERENCE_POINT_DISTANCE;

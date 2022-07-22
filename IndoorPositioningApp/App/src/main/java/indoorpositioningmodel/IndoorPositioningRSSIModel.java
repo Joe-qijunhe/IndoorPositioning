@@ -1,16 +1,11 @@
 package indoorpositioningmodel;
 
-import android.Manifest;
 import android.app.Activity;
 import android.content.Context;
-import android.content.pm.PackageManager;
 import android.net.wifi.ScanResult;
 import android.net.wifi.WifiManager;
 import android.util.Log;
 import android.widget.Toast;
-
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -130,15 +125,17 @@ public class IndoorPositioningRSSIModel {
 
         RoomMatrix<Double> probabilities = calculateProbabilityMap(rssiValues, directionData);
 
-        probabilitySums = probabilities.operate((int row, int col) -> {
-            double probability = probabilities.getValueAtIndex(row, col);
-            if (numSamples == 0) {
-                return probability;
-            } else {
-                return (probabilitySums.getValueAtIndex(row, col) + probability);
-            }
-        });
-        numSamples++;
+        probabilitySums = probabilities;
+
+//        probabilitySums = probabilities.operate((int row, int col) -> {
+//            double probability = probabilities.getValueAtIndex(row, col);
+//            if (numSamples == 0) {
+//                return probability;
+//            } else {
+//                return (probabilitySums.getValueAtIndex(row, col) + probability);
+//            }
+//        });
+//        numSamples++;
 
         Double maxProbability = probabilitySums.getMaxValue(Comparator.comparingDouble(a -> a));
         Double thresholdProbability = maxProbability*(1-IndoorPositioningSettings.THRESHOLD_PROBABILITY_PERCENTAGE);

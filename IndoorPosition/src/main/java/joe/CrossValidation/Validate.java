@@ -45,13 +45,13 @@ public class Validate {
             // accuracy and standard deviation
             double meanError = calculateAvg(errorsList);
             double stdev = calculateStdev(errorsList);
-            System.out.println("Fold " + i + " Mean Error: " + meanError + ", Standard Deviation: " + stdev);
+            System.out.println("Fold " + i + " Mean Error: " + String.format("%.2f", meanError) + ", Standard Deviation: " +  String.format("%.2f", stdev));
             allMeanError.add(meanError);
             allStdev.add(stdev);
         }
         double mean = calculateAvg(allMeanError);
         double stdev = calculateStdev(allStdev);
-        System.out.println("Overall, Mean Error: " + mean + ", Standard Deviation: " + stdev);
+        System.out.println("Overall, Mean Error: " +  String.format("%.2f", mean) + ", Standard Deviation: " +  String.format("%.2f", stdev));
     }
 
     private static double calculateError(double relX, double relY, double estX, double estY) {

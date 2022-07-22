@@ -8,8 +8,8 @@ import os
 # specify the location, direction, ssid of the records to compute rssi distribution
 X = 1
 Y = 1
-DIRECTION = "W"
-SSID = "SCSLAB_AP_1_2GHZ"
+DIRECTION = ""
+SSID = "SCSLAB_AP_1_5GHZ"
 
 
 """
@@ -121,9 +121,9 @@ def draw_distribution(input_file_name, output_file_name, target_fingerprint):
     plt.hist(rssi_observation_list, 20)
     plt.xlabel("RSSI value")
     plt.ylabel("count")
-    plt.title(output_file_name)
-    # plt.show()
-    plt.savefig(output_file_name)
+    # plt.title(output_file_name)
+    plt.show()
+    # plt.savefig(output_file_name)
     plt.close()
 
 if __name__ == '__main__':

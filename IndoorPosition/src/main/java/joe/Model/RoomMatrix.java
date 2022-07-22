@@ -60,6 +60,7 @@ public class RoomMatrix<T> {
 
         for (int row = 0; row < yArrayLength; row++) {
             for (int col = 0; col < xArrayLength; col++) {
+               if (maxValue == null || data[row][col] == null) continue;
                 if (comparator.compare(data[row][col], maxValue) > 0) {
                     maxValue = data[row][col];
                 }

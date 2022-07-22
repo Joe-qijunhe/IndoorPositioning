@@ -1,5 +1,5 @@
 import json
-from statistics import mean, stdev
+from statistics import mean, median, stdev
 
 class Position:
     def __init__(self, x, y):
@@ -45,7 +45,10 @@ def print_accuracy_result():
         all_error += error_list
         avg_error = mean(error_list)
         std_error = stdev(error_list)
-        print("{} mean error: {:.2f} m, stdev: {:.2f} m".format(pos, avg_error, std_error))
+        median_error = median(error_list)
+        min_error = min(error_list)
+        max_error = max(error_list)
+        print("{} mean error: {:.2f} m, stdev: {:.2f} m, median: {:.2f} m, min: {:.2f} m, max: {:.2f} m".format(pos, avg_error, std_error, median_error, min_error, max_error))
     print("Overall, the mean error is {:.2f} m and stdev is {:.2f} m".format(mean(all_error), stdev(all_error)))
 
 if __name__ == "__main__":

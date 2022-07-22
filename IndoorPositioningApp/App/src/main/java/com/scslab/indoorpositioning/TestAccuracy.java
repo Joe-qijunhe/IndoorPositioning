@@ -182,6 +182,8 @@ public class TestAccuracy extends AppCompatActivity {
         double error = Math.sqrt(Math.pow(estimateX - realX, 2) + Math.pow(estimateY - realY, 2));
 
         errorText.setText(String.format("%.2f", error));
+
+        ToastManager.showToast(this, "Refreshed");
     }
 
     private void refresh() {

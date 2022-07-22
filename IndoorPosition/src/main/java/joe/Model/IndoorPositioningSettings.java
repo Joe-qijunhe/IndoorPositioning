@@ -32,7 +32,7 @@ public class IndoorPositioningSettings {
     /**
      * The percentage of the highest probability that is required for the point to be treated as valid
      */
-    public static final double THRESHOLD_PROBABILITY_PERCENTAGE = 0.35;
+    public static final double THRESHOLD_PROBABILITY_PERCENTAGE = 0.75;
 
     /**
      * If true:
