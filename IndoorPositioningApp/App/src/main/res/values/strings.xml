@@ -11,6 +11,7 @@
     <string name="process_regression_text">Process Regression Data</string>
     <string name="indoor_localisation_text">Indoor Localisation</string>
     <string name="test_accuracy">Test Accuracy</string>
+    <string name="joe_model_text">Joe Model</string>
     <string name="submit">Submit</string>
     <string name="ref_x">Reference X</string>
     <string name="reference_y">Reference Y</string>

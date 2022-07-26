@@ -24,14 +24,17 @@ def load_json_data(file):
 """
     Parse accuracy_records.json and print out the result
 """
-def print_accuracy_result():
-    json_array = load_json_data("accuracy_records.json")
+def print_accuracy_result(file):
+    json_array = load_json_data(file)
     # key: position, value: list of errors
     position_error_map = dict()
     for json_obj in json_array:
         x = json_obj.get("ref_x")
         y = json_obj.get("ref_y")
         error = json_obj.get("error")
+        ap_count = json_obj.get("AP_count")
+        if ap_count != 8:
+            continue
         pos = Position(x, y)
         if position_error_map.get(pos) is None:
             position_error_map[pos] = [error]
@@ -52,4 +55,4 @@ def print_accuracy_result():
     print("Overall, the mean error is {:.2f} m and stdev is {:.2f} m".format(mean(all_error), stdev(all_error)))
 
 if __name__ == "__main__":
-    print_accuracy_result()
+    print_accuracy_result('accuracy_records_joe_model.json')

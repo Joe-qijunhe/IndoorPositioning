@@ -7,7 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
-import java.text.DecimalFormat;
+
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
@@ -41,6 +41,16 @@ public class ListAdapter extends BaseAdapter {
     @Override
     public int getCount() {
         return wifiList.size();
+    }
+
+    public int getAPCount() {
+        int count = 0;
+        for (ScanResult scanResult : wifiList) {
+            if (scanResult.SSID.contains("SCSLAB_AP")) {
+                count++;
+            }
+        }
+        return count;
     }
 
     @Override
