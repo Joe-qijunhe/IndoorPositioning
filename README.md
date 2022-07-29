@@ -9,5 +9,5 @@ from multiple access points to determine the actual position of objects.
 
 -   `IndoorPosition`: Java scripts that are used to generate distribution files, perform cross validation and so on.
 -   `IndoorPositioningApp`: Android app that can collect data, test model and so on.
--   `NeuralNetwork`: python scripts that are used to build neural network model.
--   `TestAccuracy`: python scripts that are used to clean dataset, analyze accuracy and so on.
+-   `NeuralNetwork`: Python scripts that are used to build neural network model.
+-   `TestAccuracy`: Python scripts that are used to clean dataset, analyze accuracy and so on.

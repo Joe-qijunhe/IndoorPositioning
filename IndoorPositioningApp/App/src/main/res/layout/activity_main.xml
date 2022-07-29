@@ -52,7 +52,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="40dp"
                     android:layout_marginEnd="40dp"
-                    android:text="@string/collect_rssi_text" />
+                    android:text="@string/collect_rssi_text"
+                    android:textStyle="bold"/>
 
                 <Button
                     android:id="@+id/process_distributions_button"
@@ -60,7 +61,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="40dp"
                     android:layout_marginEnd="40dp"
-                    android:text="@string/process_distributions_text" />
+                    android:text="@string/process_distributions_text"
+                    android:textStyle="bold"/>
 
                 <Button
                     android:id="@+id/process_regression_data_button"
@@ -68,7 +70,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="40dp"
                     android:layout_marginEnd="40dp"
-                    android:text="@string/process_regression_text" />
+                    android:text="@string/process_regression_text"
+                    android:textStyle="bold"/>
 
                 <Button
                     android:id="@+id/indoor_localisation_button"
@@ -76,7 +79,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="40dp"
                     android:layout_marginEnd="40dp"
-                    android:text="@string/indoor_localisation_text" />
+                    android:text="@string/indoor_localisation_text"
+                    android:textStyle="bold"/>
 
                 <Button
                     android:id="@+id/test_accuracy"
@@ -84,7 +88,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="40dp"
                     android:layout_marginEnd="40dp"
-                    android:text="@string/test_accuracy" />
+                    android:text="@string/test_accuracy"
+                    android:textStyle="bold"/>
 
                 <Button
                     android:id="@+id/joe_model"
@@ -92,7 +97,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="40dp"
                     android:layout_marginEnd="40dp"
-                    android:text="@string/joe_model_text" />
+                    android:text="@string/joe_model_text"
+                    android:textStyle="bold"/>
 
             </LinearLayout>
 
